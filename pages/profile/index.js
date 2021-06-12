@@ -62,7 +62,7 @@ Page({
 sayHello(){
   console.log("say hello");
   wx.showToast({
-    title: 'hello',
+    title: 'hello there',
     duration: 2000,
     mask: true,
   })

@@ -27,6 +27,6 @@
   </view>
 </view>
 <view class="btns">
-  <button class="btn" bindtap="sayHello" >打招呼</button>
-  <button class="btn" bindtap="haveCoffee">请TA喝一杯</button>
+  <button class="btn" bindtap="sayHello" >打个招呼</button>
+  <button class="btn" bindtap="haveCoffee">来杯咖啡</button>
 </view>
