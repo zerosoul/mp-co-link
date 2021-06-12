@@ -62,6 +62,7 @@ Page({
         }
     const userData = app.globalData.userData;
     const contentData = {
+      ... userData.content,
       gender: userData.content.gender,
       email: userData.content.email,
       avatar: userData.content.avatar,

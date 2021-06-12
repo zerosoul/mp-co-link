@@ -61,7 +61,6 @@ Page({
     content['company'] = this.data.companyData;
     content['education'] = this.data.educationData;
     app.globalData.userData.content = content;
-    console.log(app.globalData.userData)
     wx.navigateTo({
       url: '../reg_tags/index'
     })
