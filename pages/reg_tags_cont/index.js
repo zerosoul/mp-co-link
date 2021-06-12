@@ -7,53 +7,53 @@ Page({
    * Page initial data
    */
   data: {
-    goodDomainTags: [
+    interestDomainTags: [
       {tagName: '互联网/IT',  active: false},{tagName: '交互设计',  active: false},{tagName: 'O2O',  active: false},{tagName: '在线教育',  active: false},{tagName: '移动互联网',  active: false},{tagName: '人力资源',  active: false},{tagName: '计算机软件',  active: false},{tagName: '社区运营',  active: false},{tagName: '媒体',  active: false}
     ],
-    goodTopicTags: [
+    interestTopicTags: [
       {tagName: '互联网/IT',  active: false},{tagName: '交互设计',  active: false},{tagName: 'O2O',  active: false},{tagName: '在线教育',  active: false},{tagName: '移动互联网',  active: false},{tagName: '人力资源',  active: false},{tagName: '计算机软件',  active: false},{tagName: '社区运营',  active: false},{tagName: '媒体',  active: false}
     ],
-    selectedGoodDomainTags: [],
-    selectedGoodTopicTags: []
+    selectedInterestDomainTags: [],
+    selectedInterestTopicTags: []
   },
 
   handleDomainItem: function(e) {
-    if (this.data.selectedGoodDomainTags.length >= 5) {
+    if (this.data.selectedInterestDomainTags.length >= 5) {
       wx.showToast({
         title: '至多选择5个tag哦',
         icon: 'error'
       });
     } else {
       const id = e.currentTarget.dataset.id;
-      let newTags = this.data.goodDomainTags;
+      let newTags = this.data.interestDomainTags;
       newTags[id].active = !newTags[id].active
       this.setData({
-        goodDomainTags: [...newTags],
-        selectedGoodDomainTags: [...this.data.selectedGoodDomainTags, id]
+        interestDomainTags: [...newTags],
+        selectedInterestDomainTags: [...this.data.selectedInterestDomainTags, id]
       })
     }
   },
 
   handleTopicItem: function(e) {
-    if (this.data.selectedGoodTopicTags.length >= 5) {
+    if (this.data.selectedInterestTopicTags.length >= 5) {
       wx.showToast({
         title: '至多选择5个tag哦',
         icon: 'error'
       });
     } else {
       const id = e.currentTarget.dataset.id;
-      let newTags = this.data.goodTopicTags;
+      let newTags = this.data.interestTopicTags;
       newTags[id].active = !newTags[id].active
       this.setData({
-        goodTopicTags: [...newTags],
-        selectedGoodTopicTags: [...this.data.selectedGoodTopicTags, id]
+        interestTopicTags: [...newTags],
+        selectedInterestTopicTags: [...this.data.selectedInterestTopicTags, id]
       })
     }
   },
 
   handleNext() {
-    if (this.data.selectedGoodDomainTags.length === 0 || 
-        this.data.selectedGoodTopicTags.length === 0 ) {
+    if (this.data.selectedInterestDomainTags.length === 0 || 
+        this.data.selectedInterestTopicTags.length === 0 ) {
           wx.showToast({
             title: '请至少各选一个tag',
             icon: 'error'
@@ -62,15 +62,35 @@ Page({
         }
     const userData = app.globalData.userData;
     const contentData = {
+      ... userData.content,
       gender: userData.content.gender,
       email: userData.content.email,
       avatar: userData.content.avatar,
-      goodDomainTags: this.data.goodDomainTags.filter((it) => it.active).map((it) => it.tagName),
-      goodTopicTags: this.data.goodTopicTags.filter((it) => it.active).map((it) => it.tagName)
+      interestDomainTags: this.data.interestDomainTags.filter((it) => it.active).map((it) => it.tagName),
+      interestTopicTags: this.data.interestTopicTags.filter((it) => it.active).map((it) => it.tagName)
     };
-    app.globalData.userData.content = contentData;
-    wx.navigateTo({
-      url: '../reg_tags_cont/index',
+    wx.request({
+      url: 'https://wx.nicegoodthings.com/profile',
+      data: {
+        username: userData.username,
+        location: JSON.stringify(userData.location),
+        id: userData.id,
+        content: JSON.stringify(contentData)
+      },
+      method: 'POST',
+      success: (res) => {
+        if (res.data.status === 1) {
+          app.globalData.id = userData.id;
+          wx.navigateTo({
+            url: '../index/index'
+          });
+        } else {
+          wx.showToast({
+            title: '注册失败',
+            icon: 'error'
+          })
+        }
+      }
     })
   },
 

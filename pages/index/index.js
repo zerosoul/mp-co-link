@@ -33,7 +33,7 @@ Page({
               },
               method: 'GET',
               success: (res) => {
-                if (res.data.status === 1) {
+                if (res.data.status === 0) {
                   app.globalData.userData = res.data;
                   console.log('app data', app.globalData.userData);
                   wx.request({

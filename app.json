@@ -6,6 +6,7 @@
     "pages/reg_tags/index",
     "pages/appointment_success/index",
     "pages/appointment_list/index",
+    "pages/reg_tags_cont/index",
     "pages/appointment/index",
     "pages/profile/index"
   ],

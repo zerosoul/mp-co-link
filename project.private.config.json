@@ -41,6 +41,12 @@
           "pathName": "pages/reg_tags/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/reg_tags_cont/index",
+          "pathName": "pages/reg_tags_cont/index",
+          "query": "",
+          "scene": null
         }
       ]
     }
