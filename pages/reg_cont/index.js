@@ -61,7 +61,7 @@ Page({
                     }
                   }
                   wx.navigateTo({
-                    url: '../reg_cnt/index'
+                    url: '../reg_tags/index'
                   });
                 }
               })
