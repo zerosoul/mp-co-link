@@ -23,6 +23,18 @@
           "pathName": "pages/landing/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/reg/index",
+          "pathName": "pages/reg/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/reg_tags/index",
+          "pathName": "pages/reg_tags/index",
+          "query": "",
+          "scene": null
         }
       ]
     }

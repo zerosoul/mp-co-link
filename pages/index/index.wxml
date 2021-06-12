@@ -1,17 +1,3 @@
-<view>
-主页：feed  list出推荐的人 
-
-<view>
-  <navigator url="/pages/profile/index">
-  张三
-</navigator>
-</view>
-
-
-<view>
-  <navigator url="/pages/profile/index">
-  李四
-</navigator>
-</view>
+<view class="entry">
 
 </view>

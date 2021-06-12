@@ -1,11 +1,68 @@
 // pages/reg_tags/index.js
+const app = getApp();
+
 Page({
 
   /**
    * Page initial data
    */
   data: {
+    tags: [
+      {tagName: 'item',  active: false},{tagName: 'item',  active: false},{tagName: 'item',  active: false},{tagName: 'item',  active: false},{tagName: 'item',  active: false},{tagName: 'item',  active: false},{tagName: 'item',  active: false},{tagName: 'item',  active: false},{tagName: 'item',  active: false},{tagName: 'item',  active: false},{tagName: 'item',  active: false},{tagName: 'item',  active: false},{tagName: 'item',  active: false}
+    ],
+    selectedTags: []
+  },
 
+  handleItem: function(e) {
+    if (this.data.selectedTags.length >= 5) {
+      wx.showToast({
+        title: '至多选择5个tag哦',
+        icon: 'error'
+      });
+    } else {
+      const id = e.currentTarget.dataset.id;
+      let newTags = this.data.tags;
+      newTags[id].active = !newTags[id].active
+      this.setData({
+        tags: [...newTags],
+        selectedTags: [...this.data.selectedTags, id]
+      })
+    }
+  },
+
+  handleNext() {
+    console.log(app.globalData)
+    const userData = app.globalData.userData;
+    const contentData = {
+      gender: userData.content.gender,
+      email: userData.content.email,
+      avatar: userData.content.avatar,
+      tags: this.data.tags.filter((it) => it.active).map((it) => it.tagName)
+    };
+    console.log(userData)
+    wx.request({
+      url: 'https://wx.nicegoodthings.com/profile',
+      data: {
+        username: userData.username,
+        location: JSON.stringify(userData.location),
+        id: userData.id,
+        content: JSON.stringify(contentData)
+      },
+      method: 'POST',
+      success: (res) => {
+        if (res.data.status === 1) {
+          app.globalData.id = userData.id;
+          wx.navigateTo({
+            url: '../index/index'
+          });
+        } else {
+          wx.showToast({
+            title: '注册失败',
+            icon: 'error'
+          })
+        }
+      }
+    })
   },
 
   /**

@@ -1,1 +1,57 @@
 /* pages/reg_tags/index.wxss */
+.title {
+  width: 168px;
+  height: 31px;
+  padding-left: 38px;
+  padding-top: 43px;
+
+  font-family: FZDeSaiHeiS;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 31px;
+  /* identical to box height */
+
+  display: flex;
+  align-items: center;
+
+  color: #000000;
+}
+
+.selection-area {
+  margin-top: 32px;
+  padding-left: 38px;
+  padding-right: 38px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.selection-item {
+  width: 74px;
+  height: 30px;
+  background: #C3DCFD;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.active {
+  background: #2d88ff;
+}
+
+.next-step {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #056CF2;
+  color: white;
+  border-radius: 20px;
+  width: 280px;
+  margin-top: 30px;
+  height: 50px;
+}

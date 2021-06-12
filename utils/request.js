@@ -17,7 +17,7 @@ const request = ({
     const originUrl = useMock ? mockOrigin : requestOrigin;
     wx.showLoading();
     wx.request({
-      url: `${originUrl}${url}`,
+      url: `${url}`,
       data: data,
       header: header,
       method: method,

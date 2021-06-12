@@ -1,11 +1,14 @@
 <!--pages/reg_tags/index.wxml-->
-<text>reg tags</text>
-
 <view>
-<text>感兴趣的行业</text>
-<view>
-  <button>互联网</button>
-</view>
-</view>
+  <text class="title">你擅长的领域</text>
 
-<navigator url="/pages/index/index">下一步</navigator>
+  <view class="selection-area">
+    <view bindtap="handleItem" data-id="{{index}}" wx:for="{{tags}}" wx:key="index" wx:for-item="item" class="selection-item {{item.active == 1 ? 'active' : ''}}">
+      <p>item</p>
+    </view>
+  </view>
+
+  <button class="next-step" bindtap="handleNext"> 
+      <p>注册</p>
+  </button>
+</view>
