@@ -74,12 +74,13 @@ page{
   background-size: 24rpx;
 }
 
-.card .avator{
+.card .avatar{
+  overflow: hidden;
   border-radius: 50%;
   width:140rpx;
   height:140rpx;
 }
-.card .avator image{
+.card .avatar image{
   width:100%;
   height:100%;
 }

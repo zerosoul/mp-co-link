@@ -1,38 +1,20 @@
 // index.js
 // 获取应用实例
-import request from '../../utils/request';
-import { showToast } from '../../utils/util';
+// import request from '../../utils/request';
+// import { showToast } from '../../utils/util';
 const app = getApp()
 
 Page({
   data: {
-
+    profiles:[]
   },
   // 事件处理函数
   goProfileDetail(evt) {
     console.log(evt);
-    const {target:{dataset:{uid}}}=evt;
+    const {currentTarget:{dataset:{uid}}}=evt;
     wx.navigateTo({
       url: `/pages/profile/index?uid=${uid}`
     })
-    wx.getUserProfile({
-      lang: 'zh_CN',
-      desc: '数据仅用于当前小程序使用',
-      success: (res) => {
-        console.log(app.globalData)
-        app.globalData.userInfo = JSON.parse(res.rawData);
-        wx.hideLoading({
-          success: (res) => {
-            wx.navigateTo({
-              url: '../reg/index',
-            })
-          },
-        })
-      },
-      fail: (e) => {
-        wx.hideLoading();
-      }
-    });
   },
 
   onLoad() {
@@ -47,13 +29,29 @@ Page({
             wx.request({
               url: 'https://wx.nicegoodthings.com/profile',
               data: {
-                id: it.data.openid
+                id: it.data.openid 
               },
               method: 'GET',
               success: (res) => {
                 if (res.data.status === 1) {
                   app.globalData.userData = res.data;
-                  console.log('app data', app.globalData.userData)
+                  console.log('app data', app.globalData.userData);
+                  wx.request({
+                    url: `https://wx.nicegoodthings.com/profiles`,
+                    method: 'GET',
+                    success: (res) => {
+                      console.log("profile list",res.data);
+                      const {profiles}=res.data;
+                      let transformed=profiles.map(p=>{
+                        const {location,username,id}=p;
+                        const {gender,avatar,goodDomainTags=[],goodTopicTags=[],interestDomainTags=[],interestTopicTags=[]}=JSON.parse(p.content);
+                        return {sex:gender,avatar,username,addr:JSON.parse(location).join('') ,id,tags:[...goodDomainTags,...goodTopicTags,...interestDomainTags,...interestTopicTags],match:98,company:'字节跳动',position:'前端工程师'}
+                      });
+                      console.log({transformed});
+                      this.setData({profiles:transformed})
+                    },
+                 
+                  })
                 } else {
                   wx.navigateTo({
                     url: '../landing/index'
