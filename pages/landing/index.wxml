@@ -1,0 +1,3 @@
+<!--pages/landing/index.wxml-->
+<text>landing-page</text>
+<navigator url="/pages/reg/index" hover-class="navigator-hover">开始</navigator>

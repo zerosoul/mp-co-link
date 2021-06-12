@@ -1,0 +1,10 @@
+<!--pages/reg/index.wxml-->
+<text>reg profile</text>
+<view>
+<text>感兴趣的行业</text>
+<view>
+  <button>互联网</button>
+</view>
+</view>
+
+<navigator url="/pages/reg_tags/index">下一步</navigator>
