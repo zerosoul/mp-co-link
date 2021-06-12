@@ -13,10 +13,25 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    console.log({options});
+   
     const {uid}=options;
-    const currProfile=app.globalData.userList.find(u=>u.uuid==uid)
-    this.setData({currProfile})
+    console.log({options,uid});
+    wx.request({
+      url: `https://wx.nicegoodthings.com/profile?id=${uid}`,
+      method: 'GET',
+      success: (res) => {
+        console.log("profile detail",res.data);
+        // const {profiles}=res.data;
+        // this.setData({profiles:profiles.map(p=>{
+        //   const {location,username,id}=p;
+        //       const {gender,avatar,tags}=JSON.parse(p.content);
+        //   return {sex:gender,avatar,username,addr:JSON.parse(location).join('') ,uuid:id,tags,match:98,company:'字节跳动',position:'前端工程师'}
+        // })})
+      },
+   
+    })
+    // const currProfile=app.globalData.userList.find(u=>u.uuid==uid)
+    // this.setData({currProfile})
   },
 
   /**

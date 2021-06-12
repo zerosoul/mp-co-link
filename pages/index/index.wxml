@@ -1,9 +1,9 @@
 <view>
-  <view class="card" wx:key="uuid" bindtap="goProfileDetail" wx:for="{{list}}" wx:for-item="p" data-uid="{{p.uuid}}">
+  <view class="card" wx:key="id" bindtap="goProfileDetail" wx:for="{{profiles}}" wx:for-item="p" data-uid="{{p.id}}">
     <!-- 基本信息 -->
     <view class="info">
-    <view class="avator">
-      <image  src="{{p.avator}}"></image>
+    <view class="avatar">
+      <image  src="{{p.avatar}}"></image>
     </view>
       <view class="detail">
         <view class="row">
