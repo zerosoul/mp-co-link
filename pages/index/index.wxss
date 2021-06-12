@@ -1,97 +1,102 @@
-.entry {
-  position: fixed;
-  height: 100%;
-  width: 100%;
+/**index.wxss**/
+page{
+  background-color: #f1f1f1;
 }
-
-.login-view {
-  padding-top: 60px;
+/* card */
+.card{
+  border-radius: 10rpx;
+  color: #000;
+  padding:40rpx;
+  padding-bottom: 28rpx;
+  margin:32rpx 40rpx;
+  background-color:#fff;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
-
-.login {
+/* info */
+.card .info{
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+}
+.card .info .detail{
+  display: flex;
+  flex-direction: column;
+  width: 76%;
+  padding-left:30rpx;
+}
+.card .info .detail .row{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.card .info .detail .username{
+  font-size: 36rpx;
+  color:#000;
+  padding-right:30rpx;
+  background-repeat: no-repeat;
+  background-size:16rpx auto;
+  background-position: right 40%;
+}
+.card .info .detail .username.m{
+ background-image: url(https://static.nicegoodthings.com/uPic/co-link/FND4SS.jpg);
+}
+.card .info .detail .username.w{
+  padding-right:36rpx;
+  background-size:22rpx auto;
+  background-image: url(https://static.nicegoodthings.com/uPic/co-link/4wgiDd.jpg);
+ }
+.card .info .detail .match{
+  font-size: 24rpx;
+  color:#fff;
+  background-color:rgba(5, 108, 242, 1);
+  padding:16rpx;
+  border-radius: 20rpx;
+}
+.card .info .detail .position,
+.card .info .detail .company,
+.card .info .detail .addr{
+  font-size: 28rpx;
+  color:#7F838F;
+}
+.card .info .detail .position{
+  flex:1;
+  padding-left:30rpx;
+  background-image:url(https://static.nicegoodthings.com/uPic/co-link/Lfcq6Q.jpg);
+  background-repeat: no-repeat;
+  background-size: 24rpx;
+  background-position-y: 50% ;
+}
+.card .info .detail .addr{
+  flex:1;
+  padding-left:30rpx;
+  background-image:url(https://static.nicegoodthings.com/uPic/co-link/Cojtof.jpg);
+  background-repeat: no-repeat;
+  background-size: 24rpx;
+}
+
+.card .avator{
+  border-radius: 50%;
+  width:140rpx;
+  height:140rpx;
+}
+.card .avator image{
+  width:100%;
+  height:100%;
+}
+/* tags */
+.card .tags{
+  margin-top: 40rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+.card .tags .tag{
+  display: flex;
   align-items: center;
-  background-color: #056CF2;
-  color: white;
-  border-radius: 20px;
-  width: 280px;
-  height: 50px;
-}
-
-.login p {
-  font-family: FZDeSaiHeiS;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 18px;
-  letter-spacing: 0em;
-  text-align: left;
-}
-
-.title {
-  padding-top: 26px;
-  display: flex;
-  width: 100%;
-  justify-content: center;
-}
-
-.title-icon {
-  height: 23.75px;
-  width: 23.75px;
-  left: 3.75px;
-  top: 3.75px;
-  border-radius: 0px;
-  padding-right: 18.5px;
-}
-
-.title p {
-  font-family: Circular Std;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.05em;
-  text-align: left;
-  color: #056CF2;
-}
-
-.middle {
-  width: 100%;
-  height: 469px;
-  padding-top: 20px;
-}
-
-.middle-image {
-  position: absolute;
-  z-index: 111;
-  width: 300px;
-  height: 224px;
-  top: 200px;
-  left: 37px;
-}
-
-.middle-title {
-  position: absolute;
-  width: 200px;
-  height: 28px;
-  left: 88px;
-  top: 160px;
-  color: #056CF2;
-  font-family: FZDeSaiHeiS;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 28px;
-  line-height: 100%;
-  /* identical to box height, or 28px */
-  
-  display: flex;
-  align-items: center;
-  letter-spacing: 0.02em;
-}
-
-.middle-bg-image {
-  width: 100%;
-  height: 100%;
+  padding:12rpx 16rpx;
+  font-size: 24rpx;
+  color:#000;
+  background-color:rgba(195, 220, 253, 1) ;
+  border-radius: 20rpx;
+  margin-right:12rpx;
+  margin-bottom: 12rpx;
 }

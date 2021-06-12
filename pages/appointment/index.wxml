@@ -1,2 +1,8 @@
-<!--pages/appointment/index.wxml-->
-<text>预约页</text>
+<view class="inputs">
+<view class="input range_time">
+  <text>期望时间</text>
+</view>
+<view class="input location">
+  <text>地点</text>
+</view>
+</view>

@@ -1,1 +1,13 @@
 /* pages/profile/index.wxss */
+.btns{
+  color:#fff;
+  width:100%;
+  position:fixed;
+  bottom:10rpx;
+  display:flex;
+}
+.btns .btn{
+  border:none;
+  outline: none;
+  border-radius: 50rpx;
+}

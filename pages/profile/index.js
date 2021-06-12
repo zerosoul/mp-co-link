@@ -1,18 +1,22 @@
 // pages/profile/index.js
+const app = getApp()
 Page({
 
   /**
    * Page initial data
    */
   data: {
-
+    currProfile:null
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    console.log({options});
+    const {uid}=options;
+    const currProfile=app.globalData.userList.find(u=>u.uuid==uid)
+    this.setData({currProfile})
   },
 
   /**
@@ -43,24 +47,19 @@ Page({
 
   },
 
-  /**
-   * Page event handler function--Called when user drop down
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * Called when page reach bottom
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * Called when user click on the top right corner to share
-   */
-  onShareAppMessage: function () {
-
-  }
+// method
+sayHello(){
+  console.log("say hello");
+  wx.showToast({
+    title: 'hello',
+    duration: 2000,
+    mask: true,
+  })
+},
+haveCoffee(){
+  console.log("have a coffee");
+  wx.navigateTo({
+    url: '/pages/appointment/index',
+  })
+}
 })
