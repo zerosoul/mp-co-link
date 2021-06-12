@@ -11,7 +11,7 @@ Page({
   // 事件处理函数
   goProfileDetail(evt) {
     console.log(evt);
-    const {target:{dataset:{uid}}}=evt;
+    const {currentTarget:{dataset:{uid}}}=evt;
     wx.navigateTo({
       url: `/pages/profile/index?uid=${uid}`
     })
@@ -33,7 +33,7 @@ Page({
               },
               method: 'GET',
               success: (res) => {
-                if (res.data.status === 0) {
+                if (res.data.status === 1) {
                   app.globalData.userData = res.data;
                   console.log('app data', app.globalData.userData);
                   wx.request({
@@ -44,8 +44,8 @@ Page({
                       const {profiles}=res.data;
                       let transformed=profiles.map(p=>{
                         const {location,username,id}=p;
-                        const {gender,avatar,tags}=JSON.parse(p.content);
-                        return {sex:gender,avatar,username,addr:JSON.parse(location).join('') ,id,tags,match:98,company:'字节跳动',position:'前端工程师'}
+                        const {gender,avatar,goodDomainTags=[],goodTopicTags=[],interestDomainTags=[],interestTopicTags=[]}=JSON.parse(p.content);
+                        return {sex:gender,avatar,username,addr:JSON.parse(location).join('') ,id,tags:[...goodDomainTags,...goodTopicTags,...interestDomainTags,...interestTopicTags],match:98,company:'字节跳动',position:'前端工程师'}
                       });
                       console.log({transformed});
                       this.setData({profiles:transformed})

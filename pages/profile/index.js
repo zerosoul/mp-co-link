@@ -13,7 +13,6 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-   
     const {uid}=options;
     console.log({options,uid});
     wx.request({
@@ -21,17 +20,14 @@ Page({
       method: 'GET',
       success: (res) => {
         console.log("profile detail",res.data);
-        // const {profiles}=res.data;
-        // this.setData({profiles:profiles.map(p=>{
-        //   const {location,username,id}=p;
-        //       const {gender,avatar,tags}=JSON.parse(p.content);
-        //   return {sex:gender,avatar,username,addr:JSON.parse(location).join('') ,uuid:id,tags,match:98,company:'字节跳动',position:'前端工程师'}
-        // })})
+        const {location,username,content}=res.data;
+        let {avatar,goodDomainTags=[],goodTopicTags=[],interestDomainTags=[],interestTopicTags=[]}=JSON.parse(content);
+        let tmp={skilled:[...goodTopicTags,goodDomainTags],commonAttentions:[...interestTopicTags,...interestDomainTags],location:JSON.parse(location).join(''),username,avatar,company:'奋斗',position:"全干工程师",match:99};
+        this.setData({profile:tmp})
+
       },
    
     })
-    // const currProfile=app.globalData.userList.find(u=>u.uuid==uid)
-    // this.setData({currProfile})
   },
 
   /**
