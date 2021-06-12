@@ -1,6 +1,6 @@
 <!--pages/reg/index.wxml-->
 <view>
-  <view class="title">填写个人基本信息</view>
+  <p class="title">填写个人基本信息</p>
   <form>
     <view class="row first-row">
       <text>头像</text>
