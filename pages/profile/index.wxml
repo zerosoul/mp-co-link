@@ -1,2 +1,8 @@
 <!--pages/profile/index.wxml-->
-<text>个人首页</text>
+<view class="info">
+  <text class="username">{{currProfile.username}}</text>
+</view>
+<view class="btns">
+  <button class="btn" bindtap="sayHello" >打招呼</button>
+  <button class="btn" bindtap="haveCoffee">请TA喝一杯</button>
+</view>

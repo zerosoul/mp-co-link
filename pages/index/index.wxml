@@ -1,17 +1,30 @@
 <view>
-主页：feed  list出推荐的人 
-
-<view>
-  <navigator url="/pages/profile/index">
-  张三
-</navigator>
-</view>
-
-
-<view>
-  <navigator url="/pages/profile/index">
-  李四
-</navigator>
-</view>
-
+  <view class="card" wx:key="uuid" bindtap="goProfileDetail" wx:for="{{list}}" wx:for-item="p" data-uid="{{p.uuid}}">
+    <!-- 基本信息 -->
+    <view class="info">
+    <view class="avator">
+      <image  src="{{p.avator}}"></image>
+    </view>
+      <view class="detail">
+        <view class="row">
+          <text class="username {{p.sex==1?'m':'w'}}">{{p.username}}</text>
+          <text class="match">匹配度 {{p.match}}%</text>
+        </view>
+        <view class="row">
+          <text class="company">{{p.company}}</text>
+        </view>
+        <view class="row">
+          <text class="position">{{p.position}}</text>
+          <text class="addr">{{p.addr}}</text>
+        </view>
+      </view>
+    
+    </view>
+    <!-- 标签列表 -->
+    <view class="tags">
+      <view class="tag" wx:key="tag" wx:for="{{p.tags}}" wx:for-item="tag">
+          #{{tag}}
+      </view>
+    </view>
+  </view>
 </view>
