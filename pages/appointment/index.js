@@ -21,27 +21,6 @@ Page({
     const {fid,tid}=options;
     this.setData({from:fid,to:tid})
   },
-
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page unload
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * Called when page reach bottom
-   */
-  onReachBottom: function () {
-
-  },
 bindTimeChange(evt){
   const {target:{dataset:{type}},detail:{value}}=evt;
   console.log({type});
@@ -61,7 +40,29 @@ handleSubmit(){
   const params={addr,from,to,range:{
     from:`${startDate} ${startTime}`,
     to:`${endDate} ${endTime}`
-  }}
+  }};
+  wx.request({
+    url: `https://wx.nicegoodthings.com/profile/history`,
+    method: 'PUT',
+    data:{
+      id:from,
+      data:JSON.stringify(params)
+    },
+    success:(res)=>{
+      if(res.data.status==1){
+        wx.showToast({
+          title:"成功",
+          icon:'success'
+        })
+      }else{
+        wx.showToast({
+          title:"oooooops",
+          icon:'error'
+        })
+      }
+      console.log(res);
+    }
+  })
   console.log({params});
 },
 handleAddrChange(evt){

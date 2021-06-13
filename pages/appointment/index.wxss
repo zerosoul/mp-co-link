@@ -33,6 +33,7 @@
 .inputs .input .addr{
   border:1rpx solid #999;
   padding:10rpx;
+  width:100%;
 }
 
 .btns{

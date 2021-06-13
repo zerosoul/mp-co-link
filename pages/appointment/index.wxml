@@ -30,7 +30,7 @@
 </view>
 <view class="input addr">
   <text class="title">地点</text>
-  <textarea bindinput="handleAddrChange" class="addr" name="addr" id="" cols="30" rows="10" placeholder="选个地点吧~"></textarea>
+  <textarea bindinput="handleAddrChange" class="addr" name="addr" id="" cols="30" rows="10" placeholder="填个地点吧~"></textarea>
 </view>
 </view>
 <view class="btns">
