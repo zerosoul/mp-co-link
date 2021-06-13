@@ -21,8 +21,8 @@ Page({
       success: (res) => {
         console.log("profile detail",res.data);
         const {location,username,content}=res.data;
-        let {avatar,goodDomainTags=[],goodTopicTags=[],interestDomainTags=[],interestTopicTags=[]}=JSON.parse(content);
-        let tmp={skilled:[...goodTopicTags,goodDomainTags],commonAttentions:[...interestTopicTags,...interestDomainTags],location:JSON.parse(location).join(''),username,avatar,company:'奋斗',position:"全干工程师",match:99};
+        let {avatar,company,goodDomainTags=[],goodTopicTags=[],interestDomainTags=[],interestTopicTags=[]}=JSON.parse(content);
+        let tmp={skilled:[...goodTopicTags,goodDomainTags],commonAttentions:[...interestTopicTags,...interestDomainTags],location:JSON.parse(location).join(''),username,avatar,company:company.company,position:company.role,match:99};
         this.setData({profile:tmp})
 
       },
