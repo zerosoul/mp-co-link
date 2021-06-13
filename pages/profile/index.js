@@ -55,7 +55,7 @@ Page({
 
     console.log("have a coffee", this.data.profile);
     wx.navigateTo({
-      url: `/pages/appointment/index?fid=${this.data.profile.id}&tid=${uid}`,
+      url: `/pages/appointment/index?fid=${app.globalData.userData.id}&tid=${uid}`,
     })
   }
 })

@@ -9,7 +9,8 @@
     "pages/appointment_list/index",
     "pages/reg_tags_cont/index",
     "pages/appointment/index",
-    "pages/profile/index"
+    "pages/profile/index",
+    "pages/history/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

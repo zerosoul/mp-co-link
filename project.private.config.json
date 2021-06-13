@@ -19,9 +19,9 @@
           "scene": null
         },
         {
-          "name": "pages/appointment/index",
-          "pathName": "pages/appointment/index",
-          "query": "fid=ol3Wl4mvorVlzjBDhaDsfpMsCAiU&tid=ol3Wl4mvorVlzjBDhaDsfpMsCAiU",
+          "name": "pages/history/index",
+          "pathName": "pages/history/index",
+          "query": "uuid=ol3Wl4mvorVlzjBDhaDsfpMsCAiU&hid=eilx3d",
           "scene": null
         },
         {
