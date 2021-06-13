@@ -103,20 +103,20 @@ page{
 }
 
 .sub {
-  width: 20px;
-  height: 20px;
-  background-color: red;
-  position: absolute;
-  left: 10px;
-  top: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 28px;
+  background: #FFBD2E;
+  box-shadow: 0px 2px 1px #c1c4ce;
+  position: fixed;
+  right: 30px;
+  bottom: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.pub {
-  width: 20px;
-  height: 20px;
-  background-color: black;
-  position: absolute;
-  right: 10px;
-  top: 20px;
+.sub image {
+  width: 23px;
+  height: 23px;
 }
-

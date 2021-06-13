@@ -20,13 +20,6 @@
       </view>
     
     </view>
-
-    <view class="sub" bindtap="handleSub">
-      
-    </view>
-    <view class="pub" bindtap="handlePub">
-      
-    </view>
     <!-- 标签列表 -->
     <view class="tags">
       <view class="tag" wx:key="tag" wx:for="{{p.tags}}" wx:for-item="tag">
@@ -34,4 +27,7 @@
       </view>
     </view>
   </view>
+  <view class="sub" bindtap="handleSub">
+      <image src="https://static.nicegoodthings.com/uPic/co-link/Gzfjwu.png"></image>
+    </view>
 </view>
