@@ -11,7 +11,7 @@ Page({
       {tagName: '互联网/IT',  active: false},{tagName: '交互设计',  active: false},{tagName: 'O2O',  active: false},{tagName: '在线教育',  active: false},{tagName: '移动互联网',  active: false},{tagName: '人力资源',  active: false},{tagName: '计算机软件',  active: false},{tagName: '社区运营',  active: false},{tagName: '媒体',  active: false}
     ],
     interestTopicTags: [
-      {tagName: '互联网/IT',  active: false},{tagName: '交互设计',  active: false},{tagName: 'O2O',  active: false},{tagName: '在线教育',  active: false},{tagName: '移动互联网',  active: false},{tagName: '人力资源',  active: false},{tagName: '计算机软件',  active: false},{tagName: '社区运营',  active: false},{tagName: '媒体',  active: false}
+      {tagName: '#创投圈',  active: false},{tagName: '#直播带货',  active: false},{tagName: '#品牌',  active: false},{tagName: '#职场生存指南',  active: false},{tagName: '#科技',  active: false},{tagName: '#出海',  active: false},{tagName: '#海归就业',  active: false},{tagName: '#投资人笔记',  active: false}
     ],
     selectedInterestDomainTags: [],
     selectedInterestTopicTags: []

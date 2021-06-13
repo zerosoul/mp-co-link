@@ -6,7 +6,9 @@ Page({
    * Page initial data
    */
   data: {
-    profile: null
+    profile: null,
+    uid: -1,
+    avatar: -1
   },
   getCommonTags(tags1 = [], tags2 = []) {
     let tmps = [];
@@ -22,6 +24,7 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    console.log(options)
     const { uid } = options;
     console.log({ options, uid });
     const { goodDomainTags = [], goodTopicTags = [], interestDomainTags = [], interestTopicTags = [] } = JSON.parse(app.globalData.userData.content);
@@ -43,11 +46,8 @@ Page({
 
   // method
   sayHello() {
-    console.log("say hello");
-    wx.showToast({
-      title: 'hello there',
-      duration: 2000,
-      mask: true,
+    wx.navigateTo({
+      url: `../chat/index?uid=${this.data.uid}&avatar=${this.data.avatar}`
     })
   },
   haveCoffee(evt) {

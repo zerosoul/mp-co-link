@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/landing/index",
+    "pages/chat/index",
     "pages/reg/index",
     "pages/reg_cnt/index",
     "pages/reg_tags/index",

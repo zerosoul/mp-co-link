@@ -1,0 +1,6 @@
+/* pages/chat/index.wxss */
+.avatar {
+  border-radius: 28px;
+  width: 64px;
+  height: 64px;
+}

@@ -101,3 +101,22 @@ page{
   margin-right:12rpx;
   margin-bottom: 12rpx;
 }
+
+.sub {
+  width: 40px;
+  height: 40px;
+  border-radius: 28px;
+  background: #FFBD2E;
+  box-shadow: 0px 2px 1px #c1c4ce;
+  position: fixed;
+  right: 30px;
+  bottom: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sub image {
+  width: 23px;
+  height: 23px;
+}
