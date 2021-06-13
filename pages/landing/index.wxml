@@ -1,7 +1,7 @@
 <view class="entry">
   <view class="title">
     <image class="title-icon" src="https://static.nicegoodthings.com/uPic/co-link/logo.png"></image>
-    <p>Co-Link</p>
+    <p>CoffeeChat</p>
   </view>
   <view class="middle">
     <text class="middle-title">一起喝杯咖啡吧</text>

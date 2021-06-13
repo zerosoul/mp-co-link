@@ -1,5 +1,5 @@
 <view>
-  <view class="card" wx:key="id" bindtap="goProfileDetail" wx:for="{{profiles}}" wx:for-item="p" data-uid="{{p.id}}">
+  <view class="card" wx:key="id" bindtap="goProfileDetail" wx:for="{{profiles}}" wx:for-item="p" data-uid="{{p.id}}" data-avatar="{{p.avatar}}">
     <!-- 基本信息 -->
     <view class="info">
     <view class="avatar">
@@ -19,6 +19,13 @@
         </view>
       </view>
     
+    </view>
+
+    <view class="sub" bindtap="handleSub">
+      
+    </view>
+    <view class="pub" bindtap="handlePub">
+      
     </view>
     <!-- 标签列表 -->
     <view class="tags">

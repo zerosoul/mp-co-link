@@ -1,0 +1,11 @@
+<view>
+  <view >
+    <image class="avatar" src="{{targetAvatar}}"></image>
+  </view>
+  <view >
+    <image class="avatar" src="{{myAvatar}}"></image>
+  </view>
+  <view>
+    <image src="{{}}"></image>
+  </view>
+</view>

@@ -6,15 +6,21 @@ Page({
    * Page initial data
    */
   data: {
-    profile: null
+    profile: null,
+    uid: -1,
+    avatar: -1
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    console.log(options)
     const { uid } = options;
-    console.log({ options, uid });
+    this.setData({
+      uid,
+      avatar: options.avatar
+    })
     wx.request({
       url: `https://wx.nicegoodthings.com/profile?id=${uid}`,
       method: 'GET',
@@ -60,11 +66,8 @@ Page({
 
   // method
   sayHello() {
-    console.log("say hello");
-    wx.showToast({
-      title: 'hello there',
-      duration: 2000,
-      mask: true,
+    wx.navigateTo({
+      url: `../chat/index?uid=${this.data.uid}&avatar=${this.data.avatar}`
     })
   },
   haveCoffee(evt) {

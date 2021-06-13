@@ -101,3 +101,22 @@ page{
   margin-right:12rpx;
   margin-bottom: 12rpx;
 }
+
+.sub {
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  position: absolute;
+  left: 10px;
+  top: 20px;
+}
+
+.pub {
+  width: 20px;
+  height: 20px;
+  background-color: black;
+  position: absolute;
+  right: 10px;
+  top: 20px;
+}
+
