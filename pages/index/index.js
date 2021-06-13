@@ -24,7 +24,7 @@ Page({
   },
   handlePub() {
     wx.request({
-      url: 'http://localhost:5000/wx/notify',
+      url: 'https://wx.nicegoodthings.com/wx/notify',
       data: {
         from: 'ol3Wl4mvorVlzjBDhaDsfpMsCAiU',
         to: 'ol3Wl4mvorVlzjBDhaDsfpMsCAiU',

@@ -42,7 +42,7 @@ handleSubmit(){
     to:`${endDate} ${endTime}`
   }};
   wx.request({
-    url: 'http://localhost:5000/wx/notify',
+    url: 'https://wx.nicegoodthings.com/wx/notify',
     method: 'POST',
     data: {
       from,
@@ -55,28 +55,28 @@ handleSubmit(){
       console.log('res')
     }
   })
-  // wx.request({
-  //   url: `https://wx.nicegoodthings.com/profile/history`,
-  //   method: 'PUT',
-  //   data:{
-  //     id:from,
-  //     data:JSON.stringify(params)
-  //   },
-  //   success:(res)=>{
-  //     if(res.data.status==1){
-  //       wx.showToast({
-  //         title:"成功",
-  //         icon:'success'
-  //       })
-  //     }else{
-  //       wx.showToast({
-  //         title:"oooooops",
-  //         icon:'error'
-  //       })
-  //     }
-  //     console.log(res);
-  //   }
-  // })
+  wx.request({
+    url: `https://wx.nicegoodthings.com/profile/history`,
+    method: 'PUT',
+    data:{
+      id:from,
+      data:JSON.stringify(params)
+    },
+    success:(res)=>{
+      if(res.data.status==1){
+        wx.showToast({
+          title:"成功",
+          icon:'success'
+        })
+      }else{
+        wx.showToast({
+          title:"oooooops",
+          icon:'error'
+        })
+      }
+      console.log(res);
+    }
+  })
   console.log({params});
 },
 handleAddrChange(evt){
