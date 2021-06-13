@@ -5,6 +5,7 @@ Page({
    * Page initial data
    */
   data: {
+    appointments: []
 
   },
 
@@ -12,55 +13,28 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page hide
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page unload
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * Page event handler function--Called when user drop down
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * Called when page reach bottom
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * Called when user click on the top right corner to share
-   */
-  onShareAppMessage: function () {
-
+    const { uid } = options;
+    wx.request({
+      url: `https://wx.nicegoodthings.com/profile/histories`,
+      method: 'GET',
+      data: {
+        id: uid,
+      },
+      success: (res) => {
+        console.log({ res });
+        // if (res.data.status == 1) {
+        //   wx.showToast({
+        //     title: "成功",
+        //     icon: 'success'
+        //   })
+        // } else {
+        //   wx.showToast({
+        //     title: "oooooops",
+        //     icon: 'error'
+        //   })
+        // }
+        console.log(res);
+      }
+    })
   }
 })

@@ -8,54 +8,37 @@ Page({
   data: {
     profile: null
   },
+  getCommonTags(tags1 = [], tags2 = []) {
+    let tmps = [];
+    for (let index = 0; index < tags2.length; index++) {
+      if (tags1.includes(tags2[index])) {
+        tmps.push(tags2[index])
+      }
 
+    }
+    return tmps;
+  },
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
     const { uid } = options;
     console.log({ options, uid });
+    const { goodDomainTags = [], goodTopicTags = [], interestDomainTags = [], interestTopicTags = [] } = JSON.parse(app.globalData.userData.content);
+    const currTags = [...goodDomainTags, ...goodTopicTags, ...interestDomainTags, ...interestTopicTags];
     wx.request({
       url: `https://wx.nicegoodthings.com/profile?id=${uid}`,
       method: 'GET',
       success: (res) => {
         console.log("profile detail", res.data);
-        const {id, location, username, content } = res.data;
+        const { id, location, username, content } = res.data;
         let { avatar, company = {}, goodDomainTags = [], goodTopicTags = [], interestDomainTags = [], interestTopicTags = [] } = JSON.parse(content);
-        let tmp = {id, skilled: [...goodTopicTags, goodDomainTags], commonAttentions: [...interestTopicTags, ...interestDomainTags], location: JSON.parse(location).join(''), username, avatar, company: company.company, position: company.role, match: 99 };
+        let commons = this.getCommonTags(currTags, [...goodDomainTags, ...goodTopicTags, ...interestDomainTags, ...interestTopicTags])
+        let tmp = { id, skilled: [...goodTopicTags, goodDomainTags], commonAttentions: commons, location: JSON.parse(location).join(''), username, avatar, company: company.company, position: company.role, match: 99 };
         this.setData({ profile: tmp })
-
       },
 
     })
-  },
-
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page hide
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page unload
-   */
-  onUnload: function () {
-
   },
 
   // method
@@ -68,9 +51,9 @@ Page({
     })
   },
   haveCoffee(evt) {
-    const {target:{dataset:{uid}}}=evt;
+    const { target: { dataset: { uid } } } = evt;
 
-    console.log("have a coffee",this.data.profile);
+    console.log("have a coffee", this.data.profile);
     wx.navigateTo({
       url: `/pages/appointment/index?fid=${this.data.profile.id}&tid=${uid}`,
     })

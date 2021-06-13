@@ -6,12 +6,12 @@ const app = getApp()
 
 Page({
   data: {
-    profiles:[]
+    profiles: []
   },
   // 事件处理函数
   goProfileDetail(evt) {
     console.log(evt);
-    const {currentTarget:{dataset:{uid}}}=evt;
+    const { currentTarget: { dataset: { uid } } } = evt;
     wx.navigateTo({
       url: `/pages/profile/index?uid=${uid}`
     })
@@ -29,7 +29,7 @@ Page({
             wx.request({
               url: 'https://wx.nicegoodthings.com/profile',
               data: {
-                id: it.data.openid 
+                id: it.data.openid
               },
               method: 'GET',
               success: (res) => {
@@ -40,17 +40,19 @@ Page({
                     url: `https://wx.nicegoodthings.com/profiles`,
                     method: 'GET',
                     success: (res) => {
-                      console.log("profile list",res.data);
-                      const {profiles}=res.data;
-                      let transformed=profiles.map(p=>{
-                        const {location,username,id}=p;
-                        const {company={company:'家里蹲',role:"自由职业者"},gender,avatar,goodDomainTags=[],goodTopicTags=[],interestDomainTags=[],interestTopicTags=[]}=JSON.parse(p.content);
-                        return {sex:gender,avatar,username,addr:JSON.parse(location).join('') ,id,tags:[...goodDomainTags,...goodTopicTags,...interestDomainTags,...interestTopicTags],match:98,company:company.company,position:company.role}
+                      console.log("profile list", res.data);
+                      const { profiles } = res.data;
+                      let transformed = profiles.map(p => {
+                        const { location, username, id } = p;
+                        const { company = { company: '家里蹲', role: "自由职业者" }, gender, avatar, goodDomainTags = [], goodTopicTags = [] } = JSON.parse(p.content);
+                        const addrArr = JSON.parse(location);
+                        const addr = addrArr.splice(-2).join('') || addrArr.join('')
+                        return { sex: gender, avatar, username, addr, id, tags: [...goodDomainTags, ...goodTopicTags], match: 98, company: company.company, position: company.role }
                       });
-                      console.log({transformed});
-                      this.setData({profiles:transformed})
+                      console.log({ transformed });
+                      this.setData({ profiles: transformed })
                     },
-                 
+
                   })
                 } else {
                   wx.navigateTo({
@@ -64,5 +66,5 @@ Page({
       }
     });
   },
-  
+
 })

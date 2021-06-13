@@ -14,7 +14,7 @@
   <text class="title">关于TA</text>
   <text class="desc">“我是一个在互联网行业摸爬滚打了十年的产品经理，做过社交媒体也做过互联网医疗，欢迎找我聊聊产品方法论。”</text>
 </view>
-<view class="card tags">
+<view class="card tags" wx:if="{{profile.commonAttentions.length!==0}}">
   <text class="title">共同关注</text>
   <view class="tags">
     <text class="tag" wx:for="{{profile.commonAttentions}}" wx:for-item="at">{{at}}</text>

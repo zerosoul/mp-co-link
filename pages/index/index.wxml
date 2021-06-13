@@ -14,7 +14,7 @@
           <text class="company">{{p.company}}</text>
         </view>
         <view class="row">
-          <text class="position">{{p.position}}</text>
+          <text wx:if="{{p.position}}" class="position">{{p.position}}</text>
           <text class="addr">{{p.addr}}</text>
         </view>
       </view>
