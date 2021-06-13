@@ -58,10 +58,10 @@ Page({
             title: "成功",
             icon: 'success'
           })
-          wx.navigateTo({
-            url: '../appointment_list/index',
+          // wx.navigateTo({
+          //   url: '../appointment_list/index',
 
-          });
+          // });
 
         } else {
           wx.showToast({
