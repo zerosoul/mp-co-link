@@ -6,8 +6,8 @@
     <image src="{{profile.avatar}}"></image>
   </view>
   <text class="username">{{profile.username}}</text>
-  <text class="position">{{profile.position}}</text>
-  <text class="company">@{{profile.company}}</text>
+  <text wx:if="{{profile.position}}" class="position">{{profile.position}}</text>
+  <text wx:if="{{profile.company}}" class="company">@{{profile.company}}</text>
   <text class="location">{{profile.location}}</text>
 </view>
 <view class="card about">
@@ -28,5 +28,5 @@
 </view>
 <view class="btns">
   <button class="btn" bindtap="sayHello" >打个招呼</button>
-  <button class="btn" bindtap="haveCoffee">来杯咖啡</button>
+  <button class="btn" data-uid="{{profile.id}}" bindtap="haveCoffee">来杯咖啡</button>
 </view>

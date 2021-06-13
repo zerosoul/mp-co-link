@@ -62,7 +62,6 @@ page{
   padding:30rpx;
   display: flex;
   flex-direction: column;
-
 }
 .card .title{
   color:rgba(5, 108, 242, 1);

@@ -44,8 +44,8 @@ Page({
                       const {profiles}=res.data;
                       let transformed=profiles.map(p=>{
                         const {location,username,id}=p;
-                        const {gender,avatar,goodDomainTags=[],goodTopicTags=[],interestDomainTags=[],interestTopicTags=[]}=JSON.parse(p.content);
-                        return {sex:gender,avatar,username,addr:JSON.parse(location).join('') ,id,tags:[...goodDomainTags,...goodTopicTags,...interestDomainTags,...interestTopicTags],match:98,company:'字节跳动',position:'前端工程师'}
+                        const {company={company:'家里蹲',role:"自由职业者"},gender,avatar,goodDomainTags=[],goodTopicTags=[],interestDomainTags=[],interestTopicTags=[]}=JSON.parse(p.content);
+                        return {sex:gender,avatar,username,addr:JSON.parse(location).join('') ,id,tags:[...goodDomainTags,...goodTopicTags,...interestDomainTags,...interestTopicTags],match:98,company:company.company,position:company.role}
                       });
                       console.log({transformed});
                       this.setData({profiles:transformed})

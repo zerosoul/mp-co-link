@@ -23,7 +23,7 @@
     <!-- 标签列表 -->
     <view class="tags">
       <view class="tag" wx:key="tag" wx:for="{{p.tags}}" wx:for-item="tag">
-          #{{tag}}
+          {{tag}}
       </view>
     </view>
   </view>
