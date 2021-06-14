@@ -13,26 +13,20 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/login/index",
-          "pathName": "pages/login/index",
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
           "query": "",
           "scene": null
         },
         {
           "name": "pages/history/index",
           "pathName": "pages/history/index",
-          "query": "uuid=ol3Wl4mvorVlzjBDhaDsfpMsCAiU&hid=eilx3d",
+          "query": "uuid=ol3Wl4mvorVlzjBDhaDsfpMsCAiU&hid=gpekcq",
           "scene": null
         },
         {
-          "name": "pages/profile/index",
-          "pathName": "pages/profile/index",
-          "query": "uid=ol3Wl4g9iRMBJpyHJ5FwTUY_wz2E",
-          "scene": null
-        },
-        {
-          "name": "pages/reg/index",
-          "pathName": "pages/reg/index",
+          "name": "pages/chat/index",
+          "pathName": "pages/chat/index",
           "query": "",
           "scene": null
         },

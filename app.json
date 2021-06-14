@@ -11,7 +11,8 @@
     "pages/reg_tags_cont/index",
     "pages/appointment/index",
     "pages/profile/index",
-    "pages/history/index"
+    "pages/history/index",
+    "pages/tmp_page/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

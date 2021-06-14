@@ -47,7 +47,7 @@ Page({
     };
     wx.request({
       url: `https://wx.nicegoodthings.com/profile/history`,
-      method: 'PUT',
+      method: 'POST',
       data: {
         id: from,
         data: JSON.stringify(params)
