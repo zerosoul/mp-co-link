@@ -46,6 +46,20 @@ Page({
       }
     };
     wx.request({
+      url: 'https://wx.nicegoodthings.com/wx/notify',
+      method: 'POST',
+      data: {
+        from,
+        to,
+        addr,
+        range: [`${startDate}~${startTime}`, `${endDate}~${endTime}`],
+        msg_id: '6mtp2i6Sf8wc0GRrASQs0gfN88Sb-p1ZJmjwHLiQ89I'
+      },
+      success: (e) => {
+        console.log('res')
+      }
+    })
+    wx.request({
       url: `https://wx.nicegoodthings.com/profile/history`,
       method: 'POST',
       data: {
